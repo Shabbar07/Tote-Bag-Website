@@ -305,7 +305,7 @@ const cart = new CartManager();
 
 // Global functions for easy access
 function openCart() {
-    window.location.href = '/tote-bag-shop/cart';
+    window.location.href = 'cart.html';
 }
 
 function applyCoupon() {
@@ -319,7 +319,7 @@ function applyCoupon() {
 document.addEventListener('DOMContentLoaded', () => {
     // Update cart display if on cart page
     const path = window.location.pathname;
-    if (path.includes('/tote-bag-shop/cart')) {
+    if (path.includes('cart.html')) {
         cart.updateCartDisplay();
     }
 });

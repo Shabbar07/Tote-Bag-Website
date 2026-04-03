@@ -451,7 +451,7 @@ let productsManager;
 
 document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
-    if (path.includes('/tote-bag-shop/products')) {
+    if (path.includes('products.html')) {
         productsManager = new ProductsManager();
     }
 });

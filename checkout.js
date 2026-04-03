@@ -386,16 +386,16 @@ function viewOrderDetails() {
         document.body.style.overflow = '';
     }
     
-    window.location.href = '/tote-bag-shop/index';
+    window.location.href = 'index.html';
 }
 
 // Initialize checkout when page loads
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname.includes('/tote-bag-shop/checkout')) {
+    if (window.location.pathname.includes('checkout.html')) {
         // Check if cart has items
         if (cart.getCartItems().length === 0) {
             alert('Your cart is empty. Please add items before checkout.');
-            window.location.href = '/tote-bag-shop/products';
+            window.location.href = 'products.html';
             return;
         }
         
