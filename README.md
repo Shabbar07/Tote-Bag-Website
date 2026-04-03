@@ -1,5 +1,8 @@
 # 👜 Tote Store - E-commerce Website
 
+> [!NOTE]
+> **Project Disclaimer**: This is an educational project built as an initial exploration into web development. While it features a modern design and functional components, please note that it is **not a fully-functional, production-ready e-commerce platform**.
+
 A modern, responsive e-commerce website for selling trendy tote bags. Built with vanilla HTML, CSS, and JavaScript, featuring a complete shopping experience with cart functionality, user authentication, and secure checkout.
 
 ![Tote Store](preview.png)
