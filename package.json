@@ -1,0 +1,8 @@
+{
+  "name": "tote-bag-shop",
+  "version": "1.0.0",
+  "description": "Tote Store E-commerce Website",
+  "scripts": {
+    "build": "node generate-config.js"
+  }
+}
