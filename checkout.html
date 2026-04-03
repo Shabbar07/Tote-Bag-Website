@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Secure checkout - Complete your order with our safe and secure payment process.">
+        <title>Checkout - Tote Store</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="logo.png" alt="Tote Store Logo" width="125"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <img src="menu.png" class="menu-icon" alt="Menu" onclick="menutoggle()">
+            </div>
+        </div>
+
+        <!-- Checkout Page -->
+        <div class="checkout-page">
+            <div class="small-container">
+                <h1 class="title">Secure Checkout</h1>
+                
+                <!-- Progress Bar -->
+                <div class="checkout-progress">
+                    <div class="progress-step active">
+                        <div class="step-number">1</div>
+                        <span>Shipping</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">2</div>
+                        <span>Payment</span>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">3</div>
+                        <span>Confirmation</span>
+                    </div>
+                </div>
+                
+                <div class="checkout-container">
+                    <!-- Left Column - Forms -->
+                    <div class="checkout-forms">
+                        <!-- Shipping Information -->
+                        <div class="form-section" id="shippingSection">
+                            <h2><i class="fas fa-shipping-fast"></i> Shipping Information</h2>
+                            <form id="shippingForm">
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label>First Name *</label>
+                                        <input type="text" id="firstName" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Last Name *</label>
+                                        <input type="text" id="lastName" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Email *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Phone Number *</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Address *</label>
+                                    <input type="text" id="address" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label>City *</label>
+                                        <input type="text" id="city" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label>State *</label>
+                                        <input type="text" id="state" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label>Postal Code *</label>
+                                        <input type="text" id="postalCode" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Country *</label>
+                                        <select id="country" required>
+                                            <option value="">Select Country</option>
+                                            <option value="IN">India</option>
+                                            <option value="US">United States</option>
+                                            <option value="UK">United Kingdom</option>
+                                            <option value="CA">Canada</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <button type="button" class="btn" onclick="proceedToPayment()">Continue to Payment</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Payment Information -->
+                        <div class="form-section" id="paymentSection" style="display: none;">
+                            <h2><i class="fas fa-credit-card"></i> Payment Information</h2>
+                            
+                            <!-- Payment Methods -->
+                            <div class="payment-methods">
+                                <div class="payment-option">
+                                    <input type="radio" id="creditCard" name="paymentMethod" value="credit" checked>
+                                    <label for="creditCard">
+                                        <i class="far fa-credit-card"></i>
+                                        Credit/Debit Card
+                                    </label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="paypal" name="paymentMethod" value="paypal">
+                                    <label for="paypal">
+                                        <i class="fab fa-paypal"></i>
+                                        PayPal
+                                    </label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="upi" name="paymentMethod" value="upi">
+                                    <label for="upi">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        UPI
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Credit Card Form -->
+                            <form id="paymentForm" class="payment-form">
+                                <div class="input-group">
+                                    <label>Cardholder Name *</label>
+                                    <input type="text" id="cardName" required>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label>Card Number *</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <label>Expiry Date *</label>
+                                        <input type="text" id="cardExpiry" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label>CVV *</label>
+                                        <input type="text" id="cardCvv" placeholder="123" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="checkout-actions">
+                                    <button type="button" class="btn-secondary" onclick="backToShipping()">Back to Shipping</button>
+                                    <button type="button" class="btn" onclick="completeOrder()">Complete Order</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Order Summary -->
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div class="order-items" id="orderItems">
+                            <!-- Order items will be loaded here -->
+                        </div>
+                        
+                        <div class="order-totals">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="orderSubtotal">₹0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="orderShipping">₹50</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax:</span>
+                                <span id="orderTax">₹0</span>
+                            </div>
+                            <hr>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="orderTotal">₹0</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Security Badge -->
+                        <div class="security-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure 256-bit SSL encryption</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div class="modal" id="successModal">
+            <div class="modal-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Order Placed Successfully!</h2>
+                <p>Thank you for your purchase. Your order has been confirmed and will be processed shortly.</p>
+                <p><strong>Order ID:</strong> <span id="orderId"></span></p>
+                <div class="modal-actions">
+                    <a href="index.html" class="btn">Continue Shopping</a>
+                    <button class="btn-secondary" onclick="viewOrderDetails()">View Order Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3>Download Our App</h3>
+                        <p>Get the best shopping experience on your mobile device.</p>
+                        <div class="app-logo">
+                            <img src="playstore.png" alt="Google Play Store">
+                            <img src="appstore.png" alt="Apple App Store">
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <img src="logo-white.png" alt="Tote Store Logo">
+                        <p>Our mission is to make fashion accessible and sustainable for everyone.</p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li><a href="#coupons">Coupons</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#returns">Return Policy</a></li>
+                            <li><a href="#affiliate">Join Affiliate</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow Us</h3>
+                        <ul>
+                            <li><a href="#facebook"><i class="fab fa-facebook"></i> Facebook</a></li>
+                            <li><a href="#twitter"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li><a href="#instagram"><i class="fab fa-instagram"></i> Instagram</a></li>
+                            <li><a href="#youtube"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">© 2024 Tote Store. All rights reserved.</p>
+            </div>
+        </div>
+
+        <script src="cart.js"></script>
+        <script type="module" src="navbar-auth.js"></script>
+        <script src="checkout.js"></script>
+        <script>
+            // Menu toggle function
+            var MenuItems = document.getElementById("MenuItems");
+            MenuItems.style.maxHeight = "0px";
+            
+            function menutoggle(){
+                if(MenuItems.style.maxHeight == "0px"){
+                    MenuItems.style.maxHeight = "300px";
+                } else {
+                    MenuItems.style.maxHeight = "0px";
+                }
+            }
+        </script>
+    </body>
+</html>

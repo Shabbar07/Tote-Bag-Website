@@ -1,0 +1,5 @@
+firebase-config.js
+.antigravityignore
+node_modules/
+.DS_Store
+Thumbs.db
